@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e4e4e4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;                  /*è lo spazio tra contenuto e il bordo*/
+    background-color: white;          
+    border-radius: 8px;              /*angoli arrotondati*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);        /*applica l'ombra ad un elemento, [x], [y], [raggio di opacità], [diffusione laterale], [colore]*/
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+p {
+    line-height: 1.6;         /*definisce l'internilea*/
+}
+
+ul {
+    list-style-type: none;  /*disattiva la punteggiatura*/
+    padding: 0;             /*disattiva lo spazio tra gli elementi della lista*/
+}
+
+ul li {
+    background-color: #ecf0f1;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.photo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.photo img {
+    border-radius: 50%;
+    width: 130px;
+    height: 150px;
+}
+
+.simbolo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.simbolo img {
+    border-radius: 50%;
+    width: 200px;
+    height: 150px;
+}
+
+.citazione {
+    font-style: italic;
+    background-color: #dfe6e9;
+    padding: 15px;
+    border-left: 5px solid #2c3e50;
+    margin-top: 20px;
+    border-radius: 5px;
+}
