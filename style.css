@@ -1,65 +1,108 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e4e4e4;
-    color: #333;
+    background-color: #121212;
+    color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;                  /*è lo spazio tra contenuto e il bordo*/
-    background-color: white;          
-    border-radius: 8px;              /*angoli arrotondati*/
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);        /*applica l'ombra ad un elemento, [x], [y], [raggio di opacità], [diffusione laterale], [colore]*/
+.dark-theme {
+    background-color: #121212;
+    color: white;
 }
 
-h1, h2 {
-    color: #2c3e50;
+.light-theme {
+    background-color: #f4f4f4;
+    color: black;
 }
 
-p {
-    line-height: 1.6;         /*definisce l'internilea*/
+.navbar {
+    transition: background-color 0.5s ease;
 }
 
-ul {
-    list-style-type: none;  /*disattiva la punteggiatura*/
-    padding: 0;             /*disattiva lo spazio tra gli elementi della lista*/
+.dark-theme .navbar {
+    background-color: #212121;
 }
 
-ul li {
-    background-color: #ecf0f1;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+.light-theme .navbar {
+    background-color: #f4f4f4;
 }
 
-.photo {
-    text-align: center;
-    margin-bottom: 20px;
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.photo img {
-    border-radius: 50%;
-    width: 130px;
-    height: 150px;
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.simbolo {
-    text-align: center;
-    margin-bottom: 20px;
+.modal-content {
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.simbolo img {
-    border-radius: 50%;
-    width: 200px;
-    height: 150px;
+input, textarea, button {
+    transition: all 0.3s ease;
 }
 
-.citazione {
-    font-style: italic;
-    background-color: #dfe6e9;
-    padding: 15px;
-    border-left: 5px solid #2c3e50;
-    margin-top: 20px;
-    border-radius: 5px;
+input:focus, textarea:focus {
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
 }
+
+.list-group-item {
+    border-radius: 15px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation-duration: 0.5s;
+}
+
+/* Aggiungi animazioni per pulsanti e scritte */
+.animated.bounceIn {
+    animation: bounceIn 0.5s forwards;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animated.fadeIn {
+    animation: fadeIn 1s forwards;
+}
+
