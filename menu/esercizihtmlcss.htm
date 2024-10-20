@@ -1,0 +1,275 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    h1 {
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }   
+    
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+    .topnav a.esercizi  {
+        background-color: #04AA6D;
+        color: white;
+    }
+    
+    .topnav .icon {
+        display: none;
+    }
+    
+    @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {display: none;}
+        .topnav a.icon {
+        float: right;
+        display: block;
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        .topnav.responsive {position: relative;}
+        .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        }
+        .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+        }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="topnav" id="myTopnav">
+        <a href="index.htm">Home</a>
+        <a href="#news">News</a>
+        <a href="esercizihtmlcss.htm" class="esercizi">Esercizi Html/css</a>
+        <a href="schedapersonale.html">Chi sono</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+            x.className += " responsive";
+            } else {
+            x.className = "topnav";
+            }
+        }
+        </script>
+
+<div class="padding">
+    <h1>Esercitazione quadratini</h1>
+    <div class="container">
+        <link rel="stylesheet" href="esercizi.css">
+            <style>
+                #QuadratoUNO{
+                    background-color: #133337;
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                    border: black 5px solid;
+                }
+                #QuadratoDUE{
+                    background-color: #8f0704;
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                    border: black 5px solid;
+                }
+                #QuadratoTRE{
+                    background-color: #c8ff00;
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                    border: black 5px solid;
+                }
+                #QuadratoQUATTRO{
+                    background-color: #140175;
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                    border: black 5px solid;
+                }
+                #QuadratoCINQUE{
+                    background-color: #7b0071;
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                    border: black 5px solid;
+                }
+            </style>
+        <body>
+            <div id = "QuadratoUNO">
+    
+            </div>
+            <div id = "QuadratoDUE">
+    
+            </div>
+            <div id = "QuadratoTRE">
+    
+            </div>
+            <div id = "QuadratoQUATTRO">
+    
+            </div>
+            <div id = "QuadratoCINQUE">
+    
+            </div>
+        </body>
+    </div>
+
+    <h1>Flip card</h1>
+    <div class="container">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .flip-card {
+                background-color: transparent;
+                width: 500px;
+                height: 500px;
+                perspective: 1000px;
+            }
+            
+            .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: left;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+            
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+            
+            .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            
+            .flip-card-front {
+                background-color: #bbb;
+                color: black;
+            }
+            
+            .flip-card-back {
+                background-color: #2980b9;
+                color: white;
+                transform: rotateY(180deg);
+                text-align: center;
+            }
+
+        </style>
+            <body>
+            
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="thomas.jpg" alt="Thomas" style="width:500px; height:500px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Thomas Addamo</h1>
+                        <p>Studente <b>IIS J.C. Maxwell</b></p>
+                        <p>Mi piace tantissimo <b>programmare.</b></p>
+                        <p>Ecco cosa amo mangiare costantemente senza mai fermarmi.</p>
+                        <img src="https://www.junsei.it/wp-content/uploads/2021/12/tipi-sushi-junsei.png" alt="Cibo" width="300px">
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <h1>Prima pagina HTML</h1>
+    <div class="container_prima">
+        <body>
+            <h1>
+                Ciao ecco la mia prima pagina
+            </h1>
+            <p>
+                Io sono Thomas Addamo e inizio a studiare HTML
+            </p>
+            <ul>
+                <li>
+                    <b><u>Chi ha inventato questo linguaggio?</u></b>
+                </li>
+                HTML HTML è stato creato da <b>Tim Berners-Lee</b>.
+            </ul>
+            <ul>
+                <li>
+                    <b><u>Quando?</u></b>
+                </li>
+                È stato inventato nel <b>1991</b>.
+            </ul>
+            <ul>
+                <li>
+                    <b><u>Quali sono gli scopi di questo linguaggio?</u></b>
+                </li>
+                HTML serve a strutturare e formattare contenuti sul Web, permettendo la creazione di pagine web interattive e multimediali.
+            </ul>
+            <ul>
+                <li>
+                    <b><u>Che cos'è il WEB?</u></b>
+                </li>
+                Il <b>Web</b>, o <b>World Wide Web</b>, è un sistema di documenti ipertestuali accessibili tramite Internet, che consente agli utenti di navigare tra pagine tramite link.
+            </ul>
+            <ul>
+                <li>
+                    <b><u>Che problemi risolveva il WEB?</u></b>
+                </li>
+                Il Web ha risolto la necessità di condividere informazioni in modo rapido e accessibile, facilitando la comunicazione e la collaborazione tra persone e organizzazioni in tutto il mondo.
+            </ul>
+            <ul>
+                <li>
+                    <b><u>Che differenza c'è tra web, HTML e Internet?</u></b>
+                </li>
+                <ol>
+                    <li><b>Web</b>:  è un sistema di informazioni accessibili su Internet tramite browser, che utilizza HTML per presentare i contenuti.</li>
+                    <li><b>HTML</b>: è un linguaggio di markup utilizzato per creare e formattare pagine web.</li>
+                    <li><b>Internet</b>: è una rete globale di computer interconnessi che consente la trasmissione di dati.</li>
+                </ol>
+            </ul>
+            <h2>Ecco le mie 5 pagine preferite</h2>
+            <ul><li><a href="https://www.apple.com/it/">Apple</a><br></li></ul>
+            <ul><li><a href="https://www.amazon.it/">Amazon</a><br></li></ul>
+            <ul><li><a href="https://www.canva.com/">Canva</a></li></ul>
+            <h2>Ecco la mia foto</h2>
+            <p>Sono <b>Thomas Addamo</b> e ho creato questa pagina per il corso TPSIT nell'Istituto Maxwell di Nichelino. Mi piace tanto mangiare.</p>
+            <img src="thomas.jpg" alt="Me" width="250" height="333"><br>
+            <p>Ecco una foto di quello che di solito mangio</p>
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/18/7f/03/we-bought-it-even-more.jpg?w=1100&h=-1&s=1" alt="Quello che mangio" width="250" height="333"><br>
+        </body>
+    </div>
+</div>
