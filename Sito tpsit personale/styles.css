@@ -1,0 +1,101 @@
+/* Generale: Reset di stili indesiderati */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;  /* Font SF Pro Display */
+    background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    background: #f8f9fa;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 15px; /* Spazi tra i link */
+    text-decoration: none; /* Rimuove sottolineato */
+    padding: 8px 15px;
+    position: relative;
+}
+
+/* Hover animazioni (desktop) - Cambia background senza ingrandire il testo */
+.navbar-light .navbar-nav .nav-link:hover {
+    background: #007bff;  /* Cambia il colore di sfondo al passaggio del mouse */
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Modalità mobile */
+.navbar-light .navbar-toggler {
+    border: none;
+}
+
+.navbar-light .navbar-nav .nav-link:active,
+.navbar-light .navbar-nav .nav-link:focus {
+    background: #007bff;  /* Riempimento blu al clic */
+    color: white;
+    transform: none; /* Disabilita animazione di ingrandimento */
+    box-shadow: none; /* Disabilita ombra */
+}
+
+/* Modalità mobile: disabilita hover animazioni e solo colore di background */
+@media (max-width: 991px) {
+    .navbar-light .navbar-nav .nav-link {
+        transition: background-color 0.3s ease; /* Solo animazione di colore di sfondo */
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover {
+        background: #007bff;
+        color: white;
+    }
+}
+
+/* Sezione Benvenuto */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+}
+
+.animate-title {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Sezioni arrotondate */
+.p-4.rounded.shadow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.p-4.rounded.shadow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Stile per Modal */
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animazioni */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
