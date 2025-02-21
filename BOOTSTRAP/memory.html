@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            grid-gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .grid-item {
+            width: 120px;
+            height: 120px;
+            border: none;
+            font-size: 24px;
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .grid-item:active {
+            transform: scale(0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .btn-primary {
+            background-color: #ff5722;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #e64a19;
+        }
+        .win-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            font-weight: bold;
+            color: gold;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4"><b>Memory Game</b></h1>
+        <p class="fs-4">Punteggio: <span id="score">0</span></p>
+        <button class="btn btn-primary" id="start">Inizia</button>
+        <div class="grid-container mt-3">
+            <button class="grid-item" style="background-color: red;" data-color="red"></button>
+            <button class="grid-item" style="background-color: blue;" data-color="blue"></button>
+            <button class="grid-item" style="background-color: green;" data-color="green"></button>
+            <button class="grid-item" style="background-color: yellow;" data-color="yellow"></button>
+            <button class="grid-item" style="background-color: orange;" data-color="orange"></button>
+            <button class="grid-item" style="background-color: purple;" data-color="purple"></button>
+            <button class="grid-item" style="background-color: pink;" data-color="pink"></button>
+            <button class="grid-item" style="background-color: brown;" data-color="brown"></button>
+            <button class="grid-item" style="background-color: cyan;" data-color="cyan"></button>
+        </div>
+    </div>
+    <div class="win-message" id="win-message">HAI VINTO!</div>
+    
+    <script>
+        let sequence = [];
+        let userInput = [];
+        let score = 0;
+        const colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown", "cyan"];
+
+        function flashButton(color) {
+            let button = $(`[data-color='${color}']`);
+            button.fadeOut(200).fadeIn(200);
+        }
+
+        function playSequence() {
+            let i = 0;
+            let interval = setInterval(() => {
+                flashButton(sequence[i]);
+                i++;
+                if (i >= sequence.length) clearInterval(interval);
+            }, 600);
+        }
+
+        function nextRound() {
+            userInput = [];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            sequence.push(randomColor);
+            setTimeout(playSequence, 1000);
+        }
+
+        function showWinMessage() {
+            $("#win-message").fadeIn(500).delay(2000).fadeOut(500);
+            confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
+        }
+
+        $(".grid-item").click(function() {
+            let color = $(this).data("color");
+            userInput.push(color);
+            flashButton(color);
+            if (userInput[userInput.length - 1] !== sequence[userInput.length - 1]) {
+                alert("Game Over! Hai totalizzato " + score + " punti.");
+                sequence = [];
+                score = 0;
+                $("#score").text(score);
+            } else if (userInput.length === sequence.length) {
+                score++;
+                $("#score").text(score);
+                if (score === 10) {
+                    showWinMessage();
+                    sequence = [];
+                    score = 0;
+                    $("#score").text(score);
+                } else {
+                    nextRound();
+                }
+            }
+        });
+
+        $("#start").click(function() {
+            sequence = [];
+            score = 0;
+            $("#score").text(score);
+            nextRound();
+        });
+    </script>
+</body>
+</html>
