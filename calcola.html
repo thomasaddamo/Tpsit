@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricezione Dati</title>
+</head>
+<body>
+    <h2>Dati ricevuti:</h2>
+    <p id="output"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            let a = params.get("a") || "Valore non fornito";
+            let b = params.get("b") || "Valore non fornito";
+            let lenghtA = a.length;
+            let lenghtB = b.length;
+            let stringa_contrario = a.split("").reverse().join("");
+            let stringa_contrario2 = b.split("").reverse().join("");
+            let stringhe_unite = a.concat(b);
+            let resultt = "";
+            if (lenghtA < lenghtB) {
+                resultt = "La stringa A è più corta della stringa B";
+            } else if (lenghtA > lenghtB) {
+                resultt = `La somma delle lunghezze delle stringhe è: ${lenghtA + lenghtB}`;
+            }
+
+            document.getElementById("output").innerHTML = `<p><b>Stringa A:</b> ${a}</p><p><b>Stringa B:</b> ${b}</p>`;
+            document.getElementById("output").innerHTML += `<p><b>Lunghezza Stringa A:</b> ${lenghtA}</p><p><b>Lunghezza Stringa B:</b> ${lenghtB}</p>`;
+            document.getElementById("output").innerHTML += `<p><b>Stringa A al contrario:</b> ${stringa_contrario}</p><p><b>Stringa B al contrario:</b> ${stringa_contrario2}</p>`;
+            document.getElementById("output").innerHTML += `<p><b>Stringhe unite:</b> ${stringhe_unite}</p>`;
+            document.getElementById("output").innerHTML += `<p><b>${resultt}</b></p>`;
+
+        });
+    </script>
+</body>
+</html>
